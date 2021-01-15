@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ABPCodeGeneration.Generators
 {
-    public class ContractIServiceGenerator : AbsGenerator
+    public class CreateUpdateDtoGenerator : AbsGenerator
     {
         public override string GetDir()
         {
@@ -12,7 +12,7 @@ namespace ABPCodeGeneration.Generators
         }
         public override string GetPath()
         {
-            return $@"{GetBasePath()}\{ClassInfo.Namespace.Split('.')[0]}.Application.Contracts\{ClassInfo.Namespace.Split('.')[1]}\I{ClassInfo.Name}AppService.cs";
+            return $@"{GetBasePath()}\{ClassInfo.Namespace.Split('.')[0]}.Application.Contracts\{ClassInfo.Namespace.Split('.')[1]}\CreateUpdate{ClassInfo.Name}Dto.cs";
         }
 
         public override string GetTemplet()
@@ -21,21 +21,16 @@ namespace ABPCodeGeneration.Generators
 using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
-using Volo.Abp.Application.Services;
 
 namespace {ClassInfo.Namespace}
 {{
-    public interface I{ClassInfo.Name}AppService :
-        ICrudAppService< 
-            {ClassInfo.Name}Dto, 
-            Guid, 
-            PagedAndSortedResultRequestDto, 
-            CreateUpdate{ClassInfo.Name}Dto> 
+    public class CreateUpdate{ClassInfo.Name}Dto : AuditedEntityDto<Guid>
     {{
+        {GetPropertysTemplet()}
     }}
 }}
-
 ";
+
         }
     }
 }
