@@ -7,10 +7,10 @@ namespace ABPCodeGeneration
     {
         static void Main(string[] args)
         {
-            new ApplicationAppServiceGenerator().Do();
-            new ContractDtoGenerator().Do();
-            new ContractCreateUpdateDtoGenerator().Do();
-            new ContractIAppServiceGenerator().Do();
+            new AppServiceGenerator().Do();
+            new DtoGenerator().Do();
+            new CreateUpdateDtoGenerator().Do();
+            new IAppServiceGenerator().Do();
             Console.WriteLine("Hello World!");
         }
     }

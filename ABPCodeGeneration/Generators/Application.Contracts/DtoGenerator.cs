@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ABPCodeGeneration.Generators
 {
-    public class ContractDtoGenerator : AbsGenerator
+    public class DtoGenerator : AbsGenerator
     {
         public override string GetDir()
         {
