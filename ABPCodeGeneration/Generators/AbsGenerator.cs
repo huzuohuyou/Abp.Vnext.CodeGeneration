@@ -16,7 +16,7 @@ namespace ABPCodeGeneration.Generators
         public abstract string GetDir();
         public string GetBasePath()
         {
-            return $@"D:\360Downloads\QuestionnaireInvestigation (1)\src";
+            return $@"D:\GitHub\Abp.Vnext.CodeGeneration\src";
         }
 
         public List<(string Namespace, string Name)> GetClasses()
@@ -61,18 +61,32 @@ namespace ABPCodeGeneration.Generators
         }
         private string CreateFile()
         {
+            //var path = GetPath();
+            //if (!File.Exists(path))
+            //{
+            //    using var fs = new FileStream(path, FileMode.Create, FileAccess.Write);
+            //    using var sw = new StreamWriter(fs);
+            //    {
+            //        var s = GetTemplet();
+            //        sw.WriteLine();
+            //    } 
+                
+            //}
             var path = GetPath();
             if (!File.Exists(path))
             {
                 var dir = GetDir();
                 Directory.CreateDirectory(dir);
-                using (StreamWriter sw =new StreamWriter(path))
-                {
-                    var s = GetTemplet();
-                    sw.WriteLine(s);
-                }
             }
-
+            var s = GetTemplet();
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                throw new Exception("模板为空!!!");
+            }
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                sw.WriteLine(s);
+            }
             return "";
         }
 

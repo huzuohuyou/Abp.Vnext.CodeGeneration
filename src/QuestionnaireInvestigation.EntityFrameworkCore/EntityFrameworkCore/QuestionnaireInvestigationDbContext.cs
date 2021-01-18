@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using QuestionnaireInvestigation.Questions;
 using QuestionnaireInvestigation.Users;
 using Volo.Abp.Data;
@@ -21,9 +21,11 @@ namespace QuestionnaireInvestigation.EntityFrameworkCore
     [ConnectionStringName("Default")]
     public class QuestionnaireInvestigationDbContext : AbpDbContext<QuestionnaireInvestigationDbContext>
     {
+        public DbSet<Question>Questions { get; set; }
+        public DbSet<Answer>Answers { get; set; }
+
         public DbSet<AppUser> Users { get; set; }
-        public DbSet<Question> Questions { get; set; }
-        public DbSet<Answer> Answers { get; set; }
+     
         /* Add DbSet properties for your Aggregate Roots / Entities here.
          * Also map them inside QuestionnaireInvestigationDbContextModelCreatingExtensions.ConfigureQuestionnaireInvestigation
          */
@@ -58,3 +60,9 @@ namespace QuestionnaireInvestigation.EntityFrameworkCore
         }
     }
 }
+
+
+
+
+
+

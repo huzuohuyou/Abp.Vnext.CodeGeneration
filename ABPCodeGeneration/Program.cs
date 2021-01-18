@@ -7,10 +7,12 @@ namespace ABPCodeGeneration
     {
         static void Main(string[] args)
         {
-            new AppServiceGenerator().Do();
-            new DtoGenerator().Do();
-            new CreateUpdateDtoGenerator().Do();
-            new IAppServiceGenerator().Do();
+            //new AppServiceGenerator().Do();
+            //new DtoGenerator().Do();
+            //new CreateUpdateDtoGenerator().Do();
+            //new IAppServiceGenerator().Do();
+            //new EntityFrameworkCoreGenerator().Do();
+            new ApplicationAutoMapperProfileGenerator().Do();
             Console.WriteLine("Hello World!");
         }
     }
